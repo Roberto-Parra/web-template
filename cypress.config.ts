@@ -1,6 +1,16 @@
-// cypress.config.ts
-const config: Cypress.ConfigOptions = {
-    baseUrl: 'http://localhost:3000',
-    integrationFolder: 'cypress/integration'
-};
-export default config;
+import { defineConfig } from "cypress";
+
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+  },
+
+  component: {
+    devServer: {
+      framework: "next",
+      bundler: "webpack",
+    },
+  },
+});
