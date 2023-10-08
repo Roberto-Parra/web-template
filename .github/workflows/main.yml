@@ -47,7 +47,6 @@ jobs:
         project_id: proyecto-final-abc-jobs-g9
         export_default_credentials: true
     
-    - name: Push Docker image to Google Container Registry
+    - name: Build and Push Docker image using Cloud Build
       run: |
-        docker tag abcjobs-web us-west2-docker.pkg.dev/proyecto-final-abc-jobs-g9/rocaleda-fp-web-docker-repo
-        docker push us-west2-docker.pkg.dev/proyecto-final-abc-jobs-g9/rocaleda-fp-web-docker-repo
+        gcloud builds submit --region=us-west2 --tag us-west2-docker.pkg.dev/proyecto-final-abc-jobs-g9/rocaleda-fp-web-docker-repo/fp-web-image:tag1
