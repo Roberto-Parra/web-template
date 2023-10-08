@@ -1,4 +1,0 @@
-steps:
-# Build the container images:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/cloud-builders/docker']
