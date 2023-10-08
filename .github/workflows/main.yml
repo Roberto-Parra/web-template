@@ -49,5 +49,7 @@ jobs:
         docker push us-west2-docker.pkg.dev/$GOOGLE_PROJECT/demo/fp-web-image:latest
     
     - name: Deploy to Cloud Run
+      env:
+        GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         gcloud run deploy fp-web-service --image us-west2-docker.pkg.dev/$GOOGLE_PROJECT/demo/fp-web-image:latest --region us-west2 --platform managed --allow-unauthenticated
