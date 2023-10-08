@@ -44,9 +44,13 @@ jobs:
       uses: google-github-actions/setup-gcloud@v0
       with:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
-        project_id: proyecto-final-abc-jobs-g9
+        project_id: ${{ secrets.GOOGLE_PROJECT }}
         export_default_credentials: true
     
-    - name: Build and Push Docker image using Cloud Build
+    - name: Push Docker image to Google Container Registry
+      env:
+        GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
-        gcloud builds submit --region=us-west2 --tag us-west2-docker.pkg.dev/proyecto-final-abc-jobs-g9/rocaleda-fp-web-docker-repo/fp-web-image:tag1
+        gcloud auth configure-docker us-west2-docker.pkg.dev
+        docker build -t us-west2-docker.pkg.dev/$GOOGLE_PROJECT/rocaleda-fp-web-docker-repo/fp-web-image:tag1 .
+        docker push us-west2-docker.pkg.dev/$GOOGLE_PROJECT/rocaleda-fp-web-docker-repo/fp-web-image:tag1
