@@ -49,5 +49,5 @@ jobs:
     
     - name: Push Docker image to Google Container Registry
       run: |
-        docker tag abcjobs-web gcr.io/proyecto-final-abc-jobs-g9/abcjobs-web
-        docker push gcr.io/proyecto-final-abc-jobs-g9/abcjobs-web
+        docker tag abcjobs-web us-west2-docker.pkg.dev/proyecto-final-abc-jobs-g9/rocaleda-fp-web-docker-repo
+        docker push us-west2-docker.pkg.dev/proyecto-final-abc-jobs-g9/rocaleda-fp-web-docker-repo
