@@ -52,4 +52,4 @@ jobs:
       env:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
-        #gcloud run deploy fp-web-service --image us-central1-docker.pkg.dev/$GOOGLE_PROJECT/demo2/fp-web-image:latest --region us-central1 --platform managed --allow-unauthenticated
+        gcloud run deploy fp-web-service2 --image us-central1-docker.pkg.dev/$GOOGLE_PROJECT/demo2/fp-web-image:latest --region us-central1 --platform managed --allow-unauthenticated
